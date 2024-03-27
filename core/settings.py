@@ -34,11 +34,12 @@ DJANGO_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'corsheaders',
-    'apps.employee',
-    'corsheaders',
-    'apps.user',
     'apps.company',
-    'corsheaders',
+    'apps.user',
+    'apps.employee',
+    #'corsheaders',
+    'apps.payrolls',
+    #'corsheaders',
     #'apps.employee',
     #'apps.user',
     #'apps.company',
@@ -53,7 +54,7 @@ PROJECT_APPS = [
     # 'apps.employee',
     # 'apps.company',
     # 'apps.company'
-    'apps.payrolls',
+    #'apps.payrolls',
     # 'apps.employee',
     # 'apps.user',
 
@@ -159,6 +160,7 @@ PASSWORD_HASHERS = [
     ]
 
 
+CORS_ORIGIN_ALLOW_ALL = True 
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
     'http://localhost:8000',

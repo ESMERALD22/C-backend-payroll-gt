@@ -34,6 +34,16 @@ class UserSerializer(serializers.ModelSerializer):
     
 
 class CustomUserSerializer(serializers.ModelSerializer):
-        class Meta:
-            model = User
-            fields = ['email', 'username', 'picture']
+    company_name = serializers.SerializerMethodField()
+
+    class Meta:
+        model = User
+        fields = ['id', 'email', 'username', 'picture', 'role', 'company', 'company_name', 'is_active', 'is_default_password']
+
+    def get_company_name(self, obj):
+        """
+        Método para obtener el nombre de la compañía asociada al usuario.
+        """
+        if obj.company:
+            return obj.company.name  
+        return None
